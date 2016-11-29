@@ -4,6 +4,7 @@ import thepybotwar.physic.Direction;
 import thepybotwar.physic.Scene;
 import thepybotwar.physic.Tank;
 import thepybotwar.render.SceneRenderer;
+import thepybotwar.userinterface.InterfacePopup;
 import thepybotwar.userinterface.ScriptInterface;
 import thepybotwar.userinterface.TankInterface;
 
@@ -57,26 +58,19 @@ public class Game implements Runnable {
     }
 
     private SceneRenderer renderer;
+
+    public SceneRenderer getRenderer () {
+        return renderer;
+    }
+
+    public void setRenderer (SceneRenderer renderer) {
+        this.renderer = renderer;
+    }
+
     private Screen screen;
 
-    // TODO : classe a part, hors de Game. C'est surement la qu'on va ajouter le MouseListener.
-    /**
-    public static class Screen extends JPanel {
-        public Screen(Scene scene, SceneRenderer renderer) {
-            super();
-            setPreferredSize(new Dimension(
-                    scene.getWidth()*renderer.getTilesize(), scene.getHeight()*renderer.getTilesize()
-            ));
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            renderer.render(scene, 0, 0, g);
-        }
-    }
-        **/
-    private String pathScript = "D:\\_Alex\\PROJET\\src\\main\\java\\thepybotwar\\petitscript.py";
+    private String baltPathScript = "/home/balthazar/IdeaProjects/thepybotwarfinal/ThePyBotWar/src/main/java/thepybotwar/petitscript.py";
+    private String alexPathScript = "D:\\_Alex\\PROJET-GL\\src\\main\\java\\thepybotwar\\petitscript.py";
 
     private int activePlayer;
 
@@ -85,35 +79,12 @@ public class Game implements Runnable {
         this.renderer = new SceneRenderer(24);
 
         players = new ArrayList<Player>();
-        players.add(new Player(14, 2, Direction.down, scene, pathScript));
-        players.add(new Player(15, 7, Direction.up, scene, pathScript));
+        players.add(new Player(14, 2, Direction.down, scene, alexPathScript));
+        players.add(new Player(15, 7, Direction.up, scene, alexPathScript));
         activePlayer = 0;
 
         this.screen = new Screen(scene, renderer);
-
-        screen.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                JPopupMenu menu = new JPopupMenu();
-                Tank tank = screen.getTankClicked(e);
-                if (tank != null) {
-                    JMenuItem appitem = new JMenuItem("editer apparance");
-                    appitem.addActionListener(e1 -> {
-                        TankInterface.showSkinDialog(tank, renderer);
-                    });
-                    menu.add(appitem);
-                    JMenuItem scriptitem = new JMenuItem("editer script");
-                    scriptitem.addActionListener(e12 -> {
-                        ScriptInterface.showScriptDialog(getPlayerOf(tank));
-                    });
-                    menu.add(scriptitem);
-                    menu.show(screen, e.getX(), e.getY());
-                } else {
-
-                }
-            }
-        });
-
+        screen.addMouseListener(new InterfacePopup(this));
         this.status = Status.PAUSE;
     }
 

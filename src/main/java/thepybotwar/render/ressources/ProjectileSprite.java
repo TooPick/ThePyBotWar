@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
  */
 public abstract class ProjectileSprite {
     private static SpriteSheet sheet = new SpriteSheet(24,
-            "/home/balthazar/IdeaProjects/thepybotwar2/src/render/ressources/projectiles_spritesheet.png");
+            "/home/balthazar/IdeaProjects/thepybotwarfinal/ThePyBotWar/src/main/java/thepybotwar/render/ressources/projectiles_spritesheet.png");
 
     private static BufferedImage projectile = sheet.getSprite(0, 0, 1, 1);
 
