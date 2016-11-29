@@ -46,6 +46,7 @@ public class PythonThread extends Thread {
         interpreter.exec("def moveBackward() :\n\tremote.moveBackward()");
         interpreter.exec("def turnClockWise() :\n\tremote.turnClockWise()");
         interpreter.exec("def turnAntiClockWise() :\n\tremote.turnAntiClockWise()");
+        interpreter.exec("def turnAntiClockWise() :\n\tremote.turnAntiClockWise()");
         interpreter.exec("def noAction() :\n\tremote.noAction()");
     }
 

@@ -13,20 +13,22 @@ import thepybotwar.input.TankInput;
 public class PythonRemote {
     PythonThread thread;
     TankController controller;
-    boolean lock = false;
+    TankLineOfSight sight;
 
     /**
      * Constructor
      *
      * @param thread Thread Python
      * @param controller Controller du tank
+     * @param sight ligne de vue
      *
      * @see PythonThread
      * @see TankController
      */
-    public PythonRemote(PythonThread thread, TankController controller) {
+    public PythonRemote(PythonThread thread, TankController controller, TankLineOfSight sight) {
         this.thread = thread;
         this.controller = controller;
+        this.sight = sight;
     }
 
     /**
@@ -87,5 +89,26 @@ public class PythonRemote {
         controller.unsetAll();
         controller.set(TankInput.NOACTION);
         thread.suspend();
+    }
+
+    /**
+     * getType() de line of Sight
+     * 0 Nothing, 1 Wall, 2 Tank
+     *
+     * @see TankLineOfSight
+     */
+
+    public int getType() {
+        return sight.getType();
+    }
+
+    /**
+     * Récupère la distance avec le prochain obstacle
+     *
+     * @see TankLineOfSight
+     */
+
+    public int getDistance() {
+        return sight.getDistance();
     }
 }

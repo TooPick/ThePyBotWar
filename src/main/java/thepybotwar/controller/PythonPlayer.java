@@ -30,10 +30,9 @@ public class PythonPlayer extends InputMaker {
     public PythonPlayer(TankController controller, TankLineOfSight sight, String scriptString) {
         super(controller, sight);
         this.thread = new PythonThread(scriptString);
-        this.remote = new PythonRemote(thread,controller);
+        this.remote = new PythonRemote(thread,controller,sight);
         thread.setRemote(remote);
         thread.initInterpreter();
-
         running = false;
     }
 
