@@ -5,7 +5,10 @@ import thepybotwar.input.TankController;
 import thepybotwar.input.TankLineOfSight;
 
 /**
- * Created by balthazar on 29/11/16.
+ * Gère le thread en fonction des inputs du joueur
+ *
+ * @author Nicolas
+ * @version 1.0
  */
 public class PythonPlayer extends InputMaker {
     PythonThread thread;
@@ -13,6 +16,17 @@ public class PythonPlayer extends InputMaker {
 
     private boolean running;
 
+    /**
+     * Constructor
+     * Initialise l'interpréteur de Python
+     *
+     * @param controller Controller du tank
+     * @param sight Ligne de vu du tank
+     * @param scriptString Texte du script à exécuter
+     *
+     * @see TankController
+     * @see TankLineOfSight
+     */
     public PythonPlayer(TankController controller, TankLineOfSight sight, String scriptString) {
         super(controller, sight);
         this.thread = new PythonThread(scriptString);
@@ -23,6 +37,9 @@ public class PythonPlayer extends InputMaker {
         running = false;
     }
 
+    /**
+     * Gère le démarrage du thread en fonction des inputs
+     */
     public synchronized void getInput() {
         if (! running) {
             running = true;

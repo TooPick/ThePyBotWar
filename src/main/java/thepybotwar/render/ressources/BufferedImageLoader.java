@@ -17,7 +17,7 @@ public class BufferedImageLoader {
      * Charge l'image depuis un fichier.
      * @param relativePath : le chemin relatif du fichier (relatif a l'emplacement de BufferedImageLoader.java)
      * @return : l'image correspondant au fichier
-     * @throws IOException
+     * @throws IOException Image introuvable
      */
     public static BufferedImage loadImage(String relativePath) throws IOException { // TODO : chemin relatif et pas absolu !
         //URL url = BufferedImageLoader.class.getResource(relativePath);
