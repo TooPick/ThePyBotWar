@@ -24,14 +24,12 @@ public class PythonRemote {
     }
 
     public void moveForward() {
-        System.out.println ("forward");
         controller.unsetAll();
         controller.set(TankInput.MOVEFORWARD);
         thread.suspend();
     }
 
     public void moveBackward() {
-        System.out.println("backward");
         controller.unsetAll();
         controller.set(TankInput.MOVEBACKWARD);
         thread.suspend();
@@ -66,14 +64,5 @@ public class PythonRemote {
         } catch (InterruptedException e) {
           //  e.printStackTrace();
         }
-        /**
-        try {
-            while (lock) {
-                wait();
-            }
-        } catch (Exception e) {
-            System.out.println("Lock"+ e);
-        }
-        **/
     }
 }

@@ -139,7 +139,7 @@ public class InterfacePopup extends MouseAdapter {
 
         JMenuItem changeItem = new JMenuItem("changer contenu case");
         changeItem.addActionListener(e -> {
-        //    SceneInterface.showTileEditionDialog (game.getScene(), game.getRenderer(), x, y);
+            SceneInterface.showTileEditionDialog (game.getScene(), x, y);
         });
         menu.add(changeItem);
 

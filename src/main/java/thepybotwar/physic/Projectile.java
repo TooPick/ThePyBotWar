@@ -11,6 +11,8 @@ public class Projectile {
     private Direction direction;
     private Scene context;
 
+    private static final int damages = 20;
+
     /**
      * Constructor
      *

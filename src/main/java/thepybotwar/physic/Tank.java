@@ -132,4 +132,8 @@ public class Tank {
     public Scene getContext () {
         return context;
     }
+
+    public boolean isAlive () {
+        return pv > 0;
+    }
 }

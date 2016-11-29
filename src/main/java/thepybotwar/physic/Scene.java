@@ -188,6 +188,10 @@ public class Scene {
         else return tiles[x + y * width];
     }
 
+    public void setTileAt (int x, int y, Tile tile) {
+        tiles[x + y * width] = tile;
+    }
+
     /**
      * Permet de savoir si une tuile est occupée ou vide
      *
