@@ -5,7 +5,10 @@ import thepybotwar.physic.Direction;
 import java.awt.image.BufferedImage;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui représente l'image d'un tank
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public abstract class TankSprite {
     private static SpriteSheet sheet = new SpriteSheet(24,
@@ -69,6 +72,14 @@ public abstract class TankSprite {
             sheet.getSprite(7,3,1,1)
     };
 
+    /**
+     * Récupère l'image d'un tank pour une couleur donnée
+     *
+     * @param color Couleur du tank à récupérer
+     * @return Image du tank
+     *
+     * @see TankColor
+     */
     private static BufferedImage[] collectionOf (TankColor color) {
         if (color == TankColor.BLUE) return blue;
         if (color == TankColor.KHAKI) return khaki;
@@ -81,6 +92,16 @@ public abstract class TankSprite {
         return null;
     }
 
+    /**
+     * Récupère l'image d'un tank en fonction de sa direction
+     *
+     * @param color Couleur du tank à récupérer
+     * @param dir Direction du tank
+     * @return Image du tank
+     *
+     * @see TankColor
+     * @see Direction
+     */
     public static BufferedImage get (TankColor color, Direction dir) {
         BufferedImage[] collection = collectionOf(color);
         if (dir == Direction.down) return collection[0];

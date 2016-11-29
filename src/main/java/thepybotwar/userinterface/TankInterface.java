@@ -11,10 +11,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by balthazar on 29/11/16.
+ * Interfaces graphiques liées aux tanks
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 
 public abstract class TankInterface {
+
+    /**
+     * Fenetre de visualisation des skin du tank
+     *
+     * @param tank Tank à editer
+     * @param context Gestionnaire de rendu de scène
+     *
+     * @see Tank
+     * @see SceneRenderer
+     */
     public static void showSkinDialog(Tank tank, SceneRenderer context) {
         TankRenderer renderer = context.getTankRenderer(tank);
         JPanel colorPanel = new JPanel();

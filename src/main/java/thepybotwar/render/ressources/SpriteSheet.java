@@ -4,14 +4,18 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui représente un SpriteSheet (image composée de plusieurs images)
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public class SpriteSheet {
     private BufferedImage spriteSheet;
     private int spriteSize;
 
     /**
-     * Creer un spritesheet depuis une image deja en memoire.
+     * Creer un spritesheet depuis une image déjà en memoire.
+     *
      * @param spritesize : la taille des sprites contenus.
      * @param ss : l'image a utiliser comme source.
      */
@@ -21,7 +25,8 @@ public class SpriteSheet {
     }
 
     /**
-     * Creer un spritesheet depuis un fichier image.
+     * Créer un spritesheet depuis un fichier image.
+     *
      * @param spritesize : la taille des sprites contenus.
      * @param relativepath : le fichier a utiliser comme source.
      */
@@ -38,6 +43,7 @@ public class SpriteSheet {
 
     /**
      * Retourne le sprite a la position voulue.
+     *
      * @param x : position horizontale du sprite (en sprites)
      * @param y : position verticale du sprite (en sprites)
      * @param width : largeur du sprite (en sprites)

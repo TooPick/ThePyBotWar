@@ -9,7 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui gère le rendu graphique de la scène
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public class SceneRenderer {
     private int tilesize;
@@ -17,12 +20,27 @@ public class SceneRenderer {
     private Map<Tank, TankRenderer> tankRenderers;
     private Map<Projectile, ProjectileRenderer> projectileRenderers;
 
+    /**
+     * Constructor
+     *
+     * @param tilesize Nombre de pixels par tuile (taille de l'image)
+     */
     public SceneRenderer(int tilesize) {
         this.tilesize = tilesize;
         this.tankRenderers = new HashMap<Tank, TankRenderer>();
         this.projectileRenderers = new HashMap<Projectile, ProjectileRenderer>();
     }
 
+    /**
+     * Rendu graphique de la scène
+     *
+     * @param scene Scène à afficher
+     * @param xOffset Position x absolue de l'image de la scène
+     * @param yOffset Position y absolue de l'image de la scènes
+     * @param g Support d'affichage
+     *
+     * @see Scene
+     */
     public void render (Scene scene, int xOffset, int yOffset, Graphics g) {
         for (int y = 0; y < scene.getHeight(); y++) {
             int ya = y * tilesize;
@@ -52,10 +70,19 @@ public class SceneRenderer {
         }
     }
 
+    /**
+     * Renvoi le nombre de pixels par tuile (taille de l'image)
+     * @return Nombre de pixels
+     */
     public int getTilesize() {
         return tilesize;
     }
 
+    /**
+     * Indique qu'aucun des sprites n'est entrain de se mettre à jour (est entrain de bouger)
+     *
+     * @return Scène prête (aucun sprite ne bouge) : true, sinon : false
+     */
     public boolean ready() {
         for (TankRenderer renderer : tankRenderers.values()) {
             if (renderer.isMoving()) return false;
@@ -67,6 +94,15 @@ public class SceneRenderer {
         return true;
     }
 
+    /**
+     * Renvoi le gestionnaire de rendu d'un tank
+     *
+     * @param tank Tank à afficher
+     * @return Gestionnaire de rendu du tank
+     *
+     * @see Tank
+     * @see TankRenderer
+     */
     public TankRenderer getTankRenderer (Tank tank) {
         return tankRenderers.get(tank);
     }

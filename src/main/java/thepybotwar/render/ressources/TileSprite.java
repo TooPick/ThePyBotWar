@@ -3,7 +3,10 @@ package thepybotwar.render.ressources;
 import java.awt.image.BufferedImage;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui représente l'image d'une tuile
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public abstract class TileSprite {
     private static SpriteSheet sheet = new SpriteSheet(24,

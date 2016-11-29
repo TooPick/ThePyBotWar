@@ -7,11 +7,13 @@ import thepybotwar.render.ressources.TankSprite;
 import java.awt.*;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui gère le rendu graphique d'un tank
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public class TankRenderer {
     private static final int healthBarLength = 20;  // en pixels.
-
 
     private TankColor color;
     private String name;
@@ -20,6 +22,15 @@ public class TankRenderer {
     private int x, y;
     private int sx, sy;
 
+    /**
+     * Constructor
+     *
+     * @param tank Tank à afficher
+     * @param name Nom du tank
+     * @param tilesize Nombre de pixels par tuile (taille de l'image)
+     *
+     * @see Tank
+     */
     public TankRenderer (Tank tank, String name, int tilesize) {
         this.tilesize = tilesize;
         this.x = tank.getX() * tilesize;
@@ -30,11 +41,22 @@ public class TankRenderer {
         this.sx = this.sy = 0;
     }
 
-
+    /**
+     * Renvoi si le tank effectue un mouvement
+     *
+     * @return Le tank bouge : true, sinon : false
+     */
     public boolean isMoving() {
         return (sx != 0 || sy != 0);
     }
 
+    /**
+     * Met à jour le rendu graphique du tank
+     *
+     * @param tank Tank à mettre à jour
+     *
+     * @see Tank
+     */
     private void update(Tank tank) {
         int tx = tank.getX()*tilesize;
         int ty = tank.getY()*tilesize;
@@ -60,6 +82,16 @@ public class TankRenderer {
         }
     }
 
+    /**
+     * Rendu graphique du tank
+     *
+     * @param tank Tank à afficher
+     * @param xOffset Position x absolue de l'image du tank
+     * @param yOffset Position y absolue de l'image du tank
+     * @param g Support d'affichage
+     *
+     * @see Tank
+     */
     public void render (Tank tank, int xOffset, int yOffset, Graphics g) {
         update(tank);
         g.drawImage(TankSprite.get(color, tank.getDirection()), x + xOffset, y + yOffset, null);
@@ -72,18 +104,38 @@ public class TankRenderer {
         g.fillRect(x + xOffset, (y-5) + yOffset, lifeLenght, 2);
     }
 
+    /**
+     * Renvoi la couleur du tank
+     *
+     * @return Couleur du tank
+     */
     public TankColor getColor() {
         return color;
     }
 
+    /**
+     * Défini la couleur du tank
+     *
+     * @param color Couleur du tank
+     */
     public void setColor(TankColor color) {
         this.color = color;
     }
 
+    /**
+     * Renvoi le nom du tank
+     *
+     * @return Nom du tank
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Défini le nom du tank
+     *
+     * @param name Nom du tank
+     */
     public void setName(String name) {
         this.name = name;
     }

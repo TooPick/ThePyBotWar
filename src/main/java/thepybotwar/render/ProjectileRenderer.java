@@ -6,13 +6,24 @@ import thepybotwar.render.ressources.ProjectileSprite;
 import java.awt.*;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui gère le rendu graphique d'un projectile
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public class ProjectileRenderer {
     private int tilesize;
     private int x, y;
     private int sx, sy;
 
+    /**
+     * Constructor
+     *
+     * @param projectile Projectile à afficher
+     * @param tilesize Nombre de pixels par tuile (taille de l'image)
+     *
+     * @see Projectile
+     */
     public ProjectileRenderer(Projectile projectile, int tilesize) {
         this.tilesize = tilesize;
         this.x = projectile.getX() * tilesize;
@@ -21,10 +32,22 @@ public class ProjectileRenderer {
         this.sx = this.sy = 0;
     }
 
+    /**
+     * Permet de savoir si le projectile est en cours de mouvement
+     *
+     * @return Projectile en mouvement : true, sinon : false
+     */
     public boolean isMoving() {
         return (sx != 0 || sy != 0);
     }
 
+    /**
+     * Mise à jour de l'affichage graphique d'un projectile
+     *
+     * @param projectile Projectile à mettre à jour
+     *
+     * @see Projectile
+     */
     private void update(Projectile projectile) {
         int tx = projectile.getX()*tilesize;
         int ty = projectile.getY()*tilesize;
@@ -50,7 +73,16 @@ public class ProjectileRenderer {
         }
     }
 
-
+    /**
+     * Rendu graphique du projectile
+     *
+     * @param projectile Projectile à afficher
+     * @param xOffset Position x absolue de l'image du projectile
+     * @param yOffset Position y absolue de l'image du projectile
+     * @param g Support d'affichage
+     *
+     * @see Projectile
+     */
     public void render (Projectile projectile, int xOffset, int yOffset, Graphics g) {
         g.drawImage(ProjectileSprite.get(), x + xOffset, y + yOffset, null);
     }

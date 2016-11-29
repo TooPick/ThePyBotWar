@@ -2,6 +2,9 @@ package thepybotwar.input;
 
 /**
  * Enumération qui représente les actions possibles du tank
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public enum TankInput {
     NOACTION(0,"noAction()", "ne fait rien"),

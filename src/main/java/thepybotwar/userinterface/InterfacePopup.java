@@ -11,16 +11,31 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Created by balthazar on 29/11/16.
+ * Classe qui affiche les menus popup
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 
 public class InterfacePopup extends MouseAdapter {
     private Game game;
 
+    /**
+     * Constructor
+     *
+     * @param game Boucle de jeu
+     *
+     * @see Game
+     */
     public InterfacePopup(Game game) {
         this.game = game;
     }
 
+    /**
+     * Indique le tank qui à été cliqué sinon null
+     * @param e Evènement de la souris
+     * @return Tank cliqué, sinon null
+     */
     private Tank getTankClicked (MouseEvent e) {
         int tx = e.getX() / game.getRenderer().getTilesize();
         int ty = e.getY() / game.getRenderer().getTilesize();
@@ -28,14 +43,31 @@ public class InterfacePopup extends MouseAdapter {
         return (game.getScene().getTankAt(tx, ty));
     }
 
+    /**
+     * Renvoi la position x du click
+     *
+     * @param e Evènement de la souris
+     * @return Position x du click
+     */
     private int getSceneX (MouseEvent e) {
         return e.getX() / game.getRenderer().getTilesize();
     }
 
+    /**
+     * Renvoi la position y du click
+     *
+     * @param e Evènement de la souris
+     * @return Position y du click
+     */
     private int getSceneY (MouseEvent e) {
         return e.getY() / game.getRenderer().getTilesize();
     }
 
+    /**
+     * Gère l'affichage des popups en fonction du click
+     *
+     * @param e Evènement de la souris
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         Tank tank = getTankClicked(e);
@@ -48,6 +80,16 @@ public class InterfacePopup extends MouseAdapter {
         }
     }
 
+    /**
+     * Affichage de la popup de gestion d'un tank
+     *
+     * @param tank Tank à editer
+     * @param game Boucle de jeu
+     * @return Fenetre popup
+     *
+     * @see Tank
+     * @see Game
+     */
     private JPopupMenu createTankMenu (Tank tank, Game game) {
         JPopupMenu menu = new JPopupMenu();
 
@@ -74,6 +116,16 @@ public class InterfacePopup extends MouseAdapter {
         return menu;
     }
 
+    /**
+     * Affichage de la popup de création de tuile
+     *
+     * @param x Position x de la tuile
+     * @param y Position y de la tuile
+     * @param game Boucle de jeu
+     * @return Fenetre popup
+     *
+     * @see Game
+     */
     private JPopupMenu createTileMenu (int x, int y, Game game) {
         JPopupMenu menu = new JPopupMenu();
 

@@ -16,10 +16,20 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Created by balthazar on 29/11/16.
+ * Interfaces graphiques liées aux scripts
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public abstract class ScriptInterface {
 
+    /**
+     * Affichage de la fenetre de gestion de script
+     *
+     * @param user Joueur auquel le script doit être édité
+     *
+     * @see Player
+     */
     public static void showScriptDialog(Player user) {
         Script script = user.getScript();
 
@@ -69,6 +79,12 @@ public abstract class ScriptInterface {
         JOptionPane.showMessageDialog(null, editorPanel, "edition script", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * Fenetre d'aide de l'utilisateur
+     *
+     * @param codeArea Champs d'édition de code
+     * @return Fenetre d'aide
+     */
     private static JPanel createHelpPanel (RSyntaxTextArea codeArea) {
         JPanel helpPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         helpPanel.setOpaque(true);
