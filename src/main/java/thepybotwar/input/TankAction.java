@@ -8,6 +8,8 @@ import thepybotwar.physic.Tank;
  */
 public abstract class TankAction {
     public static void update(TankController controller, Tank tank) {
+        if (! tank.isAlive()) return;
+
         if (controller.isSet(TankInput.NOACTION)) no_action(tank);
         if (controller.isSet(TankInput.SHOOT)) shoot(tank);
         if (controller.isSet(TankInput.MOVEFORWARD)) moveForward(tank);
