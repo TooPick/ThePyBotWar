@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/thepybotwar2.iml" filepath="$PROJECT_DIR$/thepybotwar2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thepybotwar.iml" filepath="$PROJECT_DIR$/.idea/modules/thepybotwar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thepybotwar_main.iml" filepath="$PROJECT_DIR$/.idea/modules/thepybotwar_main.iml" group="thepybotwar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thepybotwar_test.iml" filepath="$PROJECT_DIR$/.idea/modules/thepybotwar_test.iml" group="thepybotwar" />
     </modules>
   </component>
 </project>
