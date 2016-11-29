@@ -54,6 +54,11 @@ public enum Direction {
         }
     }
 
+    /**
+     * Récupère la valeur du vecteur de direction sur l'axe X
+     *
+     * @return Vecteur X
+     */
     public int vectorX() {
         switch (this) {
             case up: return 0;
@@ -64,6 +69,11 @@ public enum Direction {
         }
     }
 
+    /**
+     * Récupère la valeur du vecteur de direction sur l'axe Y
+     *
+     * @return Vecteur Y
+     */
     public int vectorY() {
         switch (this) {
             case up: return -1;

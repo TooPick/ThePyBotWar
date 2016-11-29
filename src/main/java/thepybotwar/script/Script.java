@@ -3,12 +3,20 @@ package thepybotwar.script;
 import java.io.*;
 
 /**
- * Created by balthazar on 29/11/16.
+ * Classe qui représente un script exécuté par un tank
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public class Script {
     private String pathSource;
     private String executed;
 
+    /**
+     * Constructor
+     *
+     * @param path Chemin du fichier Python
+     */
     public Script (String path) {
         this.pathSource = path;
 
@@ -30,18 +38,36 @@ public class Script {
 
     }
 
+    /**
+     * Renvoi si le script à bien été chargé
+     *
+     * @return Script chargé : true, sinon : false
+     */
     public boolean isValid () {
         return (pathSource != null && executed != null);
     }
 
+    /**
+     * Renvoi le code qui peut être exécuté par JPython
+     *
+     * @return Code exécutable
+     */
     public String getExecutedCode () {
         return executed;
     }
 
+    /**
+     * Défini le code qui peut être exécuté par JPython
+     *
+     * @param newCode Code exécutable
+     */
     public void setExecutedCode (String newCode) {
         this.executed = newCode;
     }
 
+    /**
+     * Sauvegarde le contenu du script dans le fichier Python
+     */
     public void save () {
         File fold = new File(pathSource);
         fold.delete();

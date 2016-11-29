@@ -76,7 +76,7 @@ public class Game implements Runnable {
         }
     }
         **/
-    private String pathScript = "D:\\_Alex\\PROJET-GL\\src\\main\\java\\thepybotwar\\petitscript.py";
+    private String pathScript = "D:\\_Alex\\PROJET\\src\\main\\java\\thepybotwar\\petitscript.py";
 
     private int activePlayer;
 
