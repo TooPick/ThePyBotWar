@@ -91,6 +91,10 @@ public class Scene {
         else return tiles[x + y * width];
     }
 
+    public void setTileAt (int x, int y, Tile tile) {
+        tiles[x + y * width] = tile;
+    }
+
     public boolean tileOccupied (int x, int y) {
         if (x < 0 || x >= width || y < 0 || y >= height) return true;
         if (getTileAt(x, y).isSolid()) return true;
