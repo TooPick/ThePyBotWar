@@ -3,7 +3,10 @@ package thepybotwar.render.ressources;
 import java.awt.image.BufferedImage;
 
 /**
- * Created by balthazar on 28/11/16.
+ * Classe qui représente le sprite d'un projectile
+ *
+ * @author Balthazar
+ * @version 1.0
  */
 public abstract class ProjectileSprite {
     private static SpriteSheet sheet = new SpriteSheet(24,
@@ -11,6 +14,11 @@ public abstract class ProjectileSprite {
 
     private static BufferedImage projectile = sheet.getSprite(0, 0, 1, 1);
 
+    /**
+     * Renvoi le sprite du projectile
+     *
+     * @return Sprite du projectile
+     */
     public static BufferedImage get() {
         return projectile;
     }
