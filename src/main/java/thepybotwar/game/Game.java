@@ -70,7 +70,7 @@ public class Game implements Runnable {
     private Screen screen;
 
     private String baltPathScript = "/home/balthazar/IdeaProjects/thepybotwarfinal/ThePyBotWar/src/main/java/thepybotwar/petitscript.py";
-    private String alexPathScript = "D:\\_Alex\\PROJET-GL\\src\\main\\java\\thepybotwar\\petitscript.py";
+    private String alexPathScript = "D:\\_Alex\\PROJET\\src\\main\\java\\thepybotwar\\petitscript.py";
 
     private int activePlayer;
 
