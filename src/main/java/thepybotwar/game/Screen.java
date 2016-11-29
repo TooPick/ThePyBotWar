@@ -41,22 +41,6 @@ public class Screen extends JPanel {
         ));
     }
 
-
-    public Tile getTileClicked(MouseEvent e) {
-        int tx = e.getX() / renderer.getTilesize();
-        int ty = e.getY() / renderer.getTilesize();
-
-        return scene.getTileAt(tx, ty);
-    }
-
-    public Tank getTankClicked(MouseEvent e) {
-        int tx = e.getX() / renderer.getTilesize();
-        int ty = e.getY() / renderer.getTilesize();
-
-        return scene.getTankAt(tx, ty);
-    }
-
-
     @Override
     protected void paintComponent(Graphics g) {
         renderer.render(scene, 0, 0, g);

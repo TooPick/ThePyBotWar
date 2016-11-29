@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
  */
 public abstract class TankSprite {
     private static SpriteSheet sheet = new SpriteSheet(24,
-            "D:\\_Alex\\PROJET-GL\\src\\main\\java\\thepybotwar\\render\\ressources\\tanks_sprites.png");
+            "/home/balthazar/IdeaProjects/thepybotwarfinal/ThePyBotWar/src/main/java/thepybotwar/render/ressources/tanks_sprites.png");
 
     public static BufferedImage blue[] = {
             sheet.getSprite(0,0,1,1),
