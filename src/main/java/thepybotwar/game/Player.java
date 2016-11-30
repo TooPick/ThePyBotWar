@@ -108,4 +108,9 @@ public class Player {
     public void setInputMaker (InputMaker player) {
         this.player = player;
     }
+
+	public void setExecutedCode (String code) {
+		script.setExecutedCode(code);
+		player = new PythonPlayer(controller, sight, script.getExecutedCode());
+	}
 }

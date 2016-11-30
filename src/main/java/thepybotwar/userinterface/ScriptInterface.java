@@ -76,7 +76,10 @@ public abstract class ScriptInterface {
         editorPanel.add(redoButton);
         editorPanel.add(saveButton);
 
-        JOptionPane.showMessageDialog(null, editorPanel, "edition script", JOptionPane.PLAIN_MESSAGE);
+        int wantToEdit = JOptionPane.showConfirmDialog(null, editorPanel, "edition script", JOptionPane.OK_CANCEL_OPTION);
+	if (wantToEdit == JOptionPane.OK_OPTION) {
+		user.setExecutedCode(codeArea.getText());
+	}
     }
 
     /**
