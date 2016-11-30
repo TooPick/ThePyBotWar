@@ -2,6 +2,7 @@ package thepybotwar.controller;
 
 import thepybotwar.input.TankController;
 import thepybotwar.input.TankInput;
+import thepybotwar.input.TankLineOfSight;
 
 /**
  * Classe donnée à l'interpréteur Python
@@ -93,11 +94,11 @@ public class PythonRemote {
 
     /**
      * getType() de line of Sight
-     * 0 Nothing, 1 Wall, 2 Tank
+     * 
+     * @return 0 Nothing, 1 Wall, 2 Tank
      *
      * @see TankLineOfSight
      */
-
     public int getType() {
         return sight.getType();
     }
@@ -105,9 +106,9 @@ public class PythonRemote {
     /**
      * Récupère la distance avec le prochain obstacle
      *
+     * @return Distance de l'obstacle
      * @see TankLineOfSight
      */
-
     public int getDistance() {
         return sight.getDistance();
     }
