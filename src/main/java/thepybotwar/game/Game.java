@@ -126,8 +126,7 @@ public class Game implements Runnable {
 
     private Screen screen;
 
-    private String baltPathScript = "/home/balthazar/IdeaProjects/thepybotwarfinal/ThePyBotWar/src/main/java/thepybotwar/petitscript.py";
-    private String alexPathScript = "D:\\_Alex\\PROJET\\src\\main\\java\\thepybotwar\\petitscript.py";
+    private String baltPathScript = "scripts/petitscript.py";
 
     private int activePlayer;
 
@@ -140,8 +139,8 @@ public class Game implements Runnable {
         this.renderer = new SceneRenderer(24);
 
         players = new ArrayList<Player>();
-        players.add(new Player(14, 2, Direction.down, scene, alexPathScript));
-        players.add(new Player(15, 7, Direction.up, scene, alexPathScript));
+        players.add(new Player(14, 2, Direction.down, scene, baltPathScript));
+        players.add(new Player(15, 7, Direction.up, scene, baltPathScript));
         activePlayer = 0;
 
         this.screen = new Screen(scene, renderer);
